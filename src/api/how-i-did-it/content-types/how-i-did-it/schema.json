@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "how_i_did_its",
+  "info": {
+    "singularName": "how-i-did-it",
+    "pluralName": "how-i-did-its",
+    "displayName": "How i did it"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Description": {
+      "type": "blocks"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "mappedBy": "how_i_did_its"
+    }
+  }
+}
