@@ -1,28 +1,25 @@
 {
   "kind": "collectionType",
-  "collectionName": "how_i_did_its",
+  "collectionName": "articles",
   "info": {
-    "singularName": "how-i-did-it",
-    "pluralName": "how-i-did-its",
-    "displayName": "How i did it"
+    "singularName": "article",
+    "pluralName": "articles",
+    "displayName": "Article"
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
-    "Name": {
+    "Title": {
       "type": "string",
       "required": true,
       "unique": true
-    },
-    "Description": {
-      "type": "blocks"
     },
     "categories": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::category.category",
-      "mappedBy": "how_i_did_its"
+      "mappedBy": "articles"
     }
   }
 }
