@@ -16,11 +16,22 @@
       "required": true,
       "unique": true
     },
+    "article": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::article.article",
+      "mappedBy": "MainCategory"
+    },
     "articles": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::article.article",
-      "inversedBy": "categories"
+      "mappedBy": "AdditionalCategories"
+    },
+    "Slug": {
+      "type": "uid",
+      "required": true,
+      "targetField": "Name"
     }
   }
 }

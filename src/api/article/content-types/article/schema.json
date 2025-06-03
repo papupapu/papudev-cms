@@ -16,11 +16,11 @@
       "required": true,
       "unique": true
     },
-    "categories": {
+    "AdditionalCategories": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::category.category",
-      "mappedBy": "articles"
+      "inversedBy": "articles"
     },
     "Description": {
       "type": "richtext"
@@ -46,6 +46,12 @@
         "videos",
         "audios"
       ]
+    },
+    "MainCategory": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category",
+      "inversedBy": "article"
     }
   }
 }
