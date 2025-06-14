@@ -408,11 +408,18 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     MainCategory: Schema.Attribute.Relation<
-      'oneToOne',
+      'manyToMany',
       'api::category.category'
     >;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'Title'>;
+    Summary: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     Title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
@@ -434,8 +441,11 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    article: Schema.Attribute.Relation<'oneToOne', 'api::article.article'>;
     articles: Schema.Attribute.Relation<'manyToMany', 'api::article.article'>;
+    articlesForMain: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::article.article'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

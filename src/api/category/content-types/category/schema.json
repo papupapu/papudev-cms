@@ -10,17 +10,12 @@
   "options": {
     "draftAndPublish": true
   },
+  "pluginOptions": {},
   "attributes": {
     "Name": {
       "type": "string",
       "required": true,
       "unique": true
-    },
-    "article": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::article.article",
-      "mappedBy": "MainCategory"
     },
     "articles": {
       "type": "relation",
@@ -30,8 +25,14 @@
     },
     "Slug": {
       "type": "uid",
-      "required": true,
-      "targetField": "Name"
+      "targetField": "Name",
+      "required": true
+    },
+    "articlesForMain": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::article.article",
+      "mappedBy": "MainCategory"
     }
   }
 }

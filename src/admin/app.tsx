@@ -9,11 +9,11 @@ import {
 
 const defaultHtml: Preset = {
   ...defaultHtmlPreset,
-  description: 'Modified default HTML editor',
+  description: 'Content HTML editor',
   styles: '',
   editorConfig: {
     ...defaultHtmlPreset.editorConfig,
-    placeholder: 'Modified default HTML editor',
+    placeholder: 'Content',
     toolbar: [
       'heading',
       '|',
